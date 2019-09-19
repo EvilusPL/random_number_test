@@ -12,7 +12,7 @@ public partial class MainWindow
 		global::Stetic.Gui.Initialize(this);
 		// Widget MainWindow
 		this.Name = "MainWindow";
-		this.Title = "random_number_test";
+		this.Title = global::Mono.Unix.Catalog.GetString("random_number_test");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
@@ -34,5 +34,6 @@ public partial class MainWindow
 		this.DefaultHeight = 300;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+		this.textview.SizeAllocated += new global::Gtk.SizeAllocatedHandler(this.OnSizeAllocated);
 	}
 }

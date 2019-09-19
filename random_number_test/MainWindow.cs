@@ -31,7 +31,7 @@ public partial class MainWindow : Gtk.Window
             newString += (char)random.Next(48, 91);
         }
 
-        InsertText(textview.Buffer, newString);
+        InsertText(textview, newString);
     }
 
     private void OnSizeAllocated(object sender, SizeAllocatedArgs e)
@@ -39,10 +39,10 @@ public partial class MainWindow : Gtk.Window
         textview.ScrollToIter(textview.Buffer.EndIter, 0, false, 0, 0);
     }
 
-    private static void InsertText(TextBuffer textBuffer, string line)
+    private static void InsertText(TextView textview, string line)
     {
-        TextIter textIter = textBuffer.EndIter;
-        textBuffer.Insert(ref textIter, line);
+        TextIter textIter = textview.Buffer.EndIter;
+        textview.Buffer.Insert(ref textIter, line);
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
